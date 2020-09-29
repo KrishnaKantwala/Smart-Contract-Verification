@@ -1,0 +1,17 @@
+
+we used the following solidity parser:
+https://github.com/ConsenSys/python-solidity-parser
+
+
+
+# How to install Antlr on ubuntu machine:
+
+ sudo apt-get install -y antlr4
+
+# Antlr grammer:
+
+ https://raw.githubusercontent.com/antlr/grammars-v4/master/solidity/Solidity.g4
+
+# take a look at this link:
+
+https://github.com/antlr/antlr4/blob/master/doc/python-target.md

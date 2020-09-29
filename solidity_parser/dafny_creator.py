@@ -1,0 +1,2 @@
+class DafnyCreator:
+    pass
