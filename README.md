@@ -1,1 +1,1 @@
-# Smart-Contract-Verification
+# Smart Contract Verfication system using Dafny
