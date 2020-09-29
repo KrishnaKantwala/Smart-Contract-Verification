@@ -1,0 +1,145 @@
+\documentclass[11pt]{article}
+\usepackage{UF_FRED_paper_style}
+
+\usepackage{lipsum}  %% Package to create dummy text (comment or erase before start)
+\begin{document}
+%% ===============================================
+%% Setting the line spacing (3 options: only pick one)
+% \doublespacing
+% \singlespacing
+\onehalfspacing
+%% ===============================================
+
+\setlength{\droptitle}{-5em} %% Don't touch
+
+\begin{titlepage}
+\newcommand{\HRule}{\rule{\linewidth}{0.1mm}} 
+\center % Center everything on the page
+ 
+%---------------------------------------------------------------------------------
+%	HEADING SECTIONS (Enter the Homework/assignment No., only)
+%---------------------------------------------------------------------------------
+
+\textsc{\Large University of Waterloo}\\ % heading course Number
+\textsc{\Large ECE653 - Softwart Test/Qual Assur/Maint}\\ % heading course name
+\textsc{\large Project Proposal}\\ % Minor heading
+%---------------------------------------------------------------------------------
+%	TITLE SECTION (Replace 'TITLE' with the Homework/assignment Name/title)
+%---------------------------------------------------------------------------------
+
+\HRule \\[0.4cm]
+{ \huge \bfseries Formal Verification of Solidity Smart Contracts Using Dafny }\\[0.1cm] % Title of your Homework/assignment
+\HRule \\[1.5cm]
+ 
+%---------------------------------------------------------------------------------
+%	AUTHOR SECTION (EDIT THE NAME and T.NO., only)
+%---------------------------------------------------------------------------------
+
+\begin{minipage}{0.4\textwidth}
+\begin{flushleft} \large
+
+\emph{\bfseries Report by:}\\
+Alireza \textsc{Lotfi Takami}\\
+\emph{Student ID:} 20854299\\
+\emph{Email:} alotfita@uwaterloo.ca
+Krishna \textsc{Kantwala}\\
+\emph{Student ID:} 20868348\\
+\emph{Email:} kdkantwa@uwaterloo.ca
+Aditi \textsc{Padade}\\
+\emph{Student ID:} 20854299\\
+\emph{Email:} aditi3049@gmail.com
+\end{flushleft}
+
+\end{minipage}
+\begin{minipage}{0.4\textwidth}
+\begin{flushright} \large
+\emph{\bfseries Instructor:} \\
+Dr. Vijay \textsc{Ganesh} % Supervisor's Name
+\end{flushright}
+\end{minipage}\\[2cm]
+{\large \today}\\[1cm] 
+\includegraphics[scale=.14]{figures/waterloo.png}% \\[0.5cm] % 
+\vfill % Fill the rest of the page with white-space
+
+\end{titlepage}
+
+% %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% BODY OF THE DOCUMENT
+% %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+% --------------------
+\section{Abstract}
+% --------------------
+\paragraph{}
+A smart contract is a self-executing contract with the terms of the agreement between buyer and seller being directly written into lines of code. The code and the agreements contained therein exist across a distributed, decentralized blockchain network. The code controls the execution, and transactions are trackable and irreversible. Smart contracts permit trusted transactions and agreements to be carried out among disparate, anonymous parties without the need for a central authority, legal system, or external enforcement mechanism [\cite{Website:1}]. 
+\paragraph{}
+The goal of this project is to develop a tool to ensure bug-free designing of the smart contract and verifying its reachability property. This tool is expected to take the smart contract wriiten in solidity and translate it to dafny. Dafny being a static program verifier will be used to verify the functional correctness of the contract [\cite{DafnyALa19:online}]. We consider correctness as the state of the program without any bugs such that the program observes safe programming practices.
+
+\section{Problem Statement}
+\paragraph{}
+Smart contracts are executable programs that enable
+the building of a programmable trust mechanism between
+multiple entities without the need of a trusted third-party. Smart contracts are often written in a Turing-complete programming language called Solidity, which is not easy to audit for subtle errors [see Abstract]\cite{Hardaker2004}. Although the faithful execution of a smart contract is enforced by the consensus protocol of the blockchain, it remains the prerogative of the participating organisations to check the validity of the smart contract , i.e., the syntactic implementation meets the best practises, and validate its fairness, i.e. the code adheres to the agreed higher-level business interaction logic [\cite{kalra2018zeus}]. Therefore, to ensure bug-free smart contract we are developing a framework which will primarily focus on guaranteeing the bug free smart contract.
+
+%------------------------
+\section{Approach}
+%------------------------
+\paragraph{}
+Our approach consist of using smart contracts written in solidity as a best case for the tool. These contracts will be used as input for the parser tool- ANTLR which will help us translate the input code to dafny. Dafny being a supporter of formal verification tool will verify the translated code, thus giving an output in the form of a report with a list of detected error, if any. 
+
+%------------------------
+\section{Tool Chain}
+%------------------------
+\paragraph{}
+We are going to use different tools in our project. In this section we are going to briefly explain each of the tool.
+
+\subsection{Smart contracts}
+\paragraph{}
+Smart contracts are the building blocks that are used to create decentralized application.
+
+\subsection{Solidity}
+\paragraph{}
+Solidity is a programming language which is used for implementing smart contracts. With the help of Solidity, we can write applications that implement self-enforcing business logic such as voting, crowdfunding, blind auctions, and multi-signature wallets. Even we can say that solidity is smart contract specific language.
+\paragraph{}
+Smart contracts which are implemented in solidity language are self-executing piece of code that are compiled and pushed to the Ethereum blockchain. Solidity program is complied to bytecode that is executable on the EVM (Ethereum virtual machine). EVM  is basically a runtime environment for smart contracts in Ethereum. 
+
+\subsection{Antlr}
+\paragraph{}
+Antlr (Another Tool for Language Recognition) is a powerful parser generator, a tool which helps to create parser for reading, processing, executing or translating structured text or binary files. To parse a typical program using regular expression is not enough specially when program is using recursion but with the help of Antlr it becomes easier, faster and mess free. 
+\paragraph{}
+Antlr is used to build languages, tools, and frameworks. With the help of Antlr, one can generate a parser that can build and walk parse trees in their specific target language. Antlr helps to define a grammar for the language, data format, diagram or any kind of structure that is represented with text for analyzing.
+
+
+\subsection{Dafny}
+\paragraph{}
+Dafny is an imperative object-oriented programming language which is used to verify the functional correctness of programs with the help of built-in automatic program verifier. Dafny is using built-in specification construct to support formal verification of program. These specifications include preconditions, postcondition, frame specifications, termination metrics, loop variants and loop invariants which helps to prove correctness of code. With the help of Dafny, it becomes easier for programmers to write correct code without having any runtime errors and also correct in terms of what exactly program intended to do.
+
+
+%------------------------
+\section{Benchmark}
+%------------------------
+\paragraph{}
+As we explained before, in this project our goal is to define some queries in smart contract solidity code and turn the smart contract solidity code and it's defined queries into Dafny code. In order to test our project we are going to create some basic smart contracts and define different queries inside them. These smart contracts are our project test cases. We are going to use different solidity codes to cover most of the solidity syntax.   
+
+% --------------------
+\section{Plan of Action and Feasibility Analysis}
+% --------------------
+\paragraph{}
+In order to have meaningful individual contribution from all the team member, the members need to get familiar with the Tool chains- ANTLR, Solidity, Python/Java, and Dafny. As per our estimation, this step is expected to be completed within two to three weeks time frame. Once the tool- familiarization step is completed, we shall begin with a simple smart contract using solidity. Simultaneously, we shall be writing a Python or Java code which uses ANTLR to parse the solidity smart contract. Using ANTLR, we are planning to design a parser which is expected to recognize different formats of the smart contract and create necessary rules which are required for the parser. The output of this parser code shall be a Dafny code, if no bugs are encountered. Since we shall be starting with a simple smart contract as an input of our project, we anticipate to do this in two weeks and get the first output of our project in week five of the project. Therefore, we have about five weeks to add more features to our project. We are planning to support a new syntax of solidity in each step of the project. As per our timeline estimation, by the end of ten weeks we are expecting an executable code which shall formally verify the smart contract, thus covering most of the solidity syntax. Our benchmark also consist of working on considerable number of smart contracts.
+
+% --------------------
+\section{Demo}
+% --------------------
+
+\paragraph{}
+Our final application will be a command line application which takes solidity program file as an input and gives reachability and unreachability of queries inside solidity as an output.
+
+% \medskip
+
+\bibliography{references} 
+
+
+\end{document}
+
