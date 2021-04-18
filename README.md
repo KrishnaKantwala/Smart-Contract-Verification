@@ -11,9 +11,9 @@ A smart contract is a self-executing contract with the terms of the agreement be
 
 - Smart contracts are a kind of safety-critical systems. As smart contracts failure leads to catastrophic consequences, it is very important to do formal verification on them before deploying them on blockchains.
 
-- In order to implement the Smart contract verification tool, 
+- In order to implement the Smart contract verification tool, our approach is:
   - Create a sample solidity smart contract.
-  - Feed Antlr with smart contract solidity code and a proper grammar file to generate parse tree in a specific target lanaguage Python.
-  - The parse tree of Antlre can be used by Python to create a command-line user interface as interface of our solidity smart contract formal verification tool.
+  - Feed ANTLR with smart contract solidity code and a proper grammar file to generate parse tree in a specific target lanaguage Python.
+  - The parse tree of ANTLR can be used by Python to create a command-line user interface as interface of our solidity smart contract formal verification tool.
   - Dafny being a supporter of formal verification tool which will verify the translated code, thus giving an output in the form of a report with a list of detected error, if any.
 
